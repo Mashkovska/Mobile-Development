@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "787455216394",
+    "firebase_url": "https://androidapplication-46f40.firebaseio.com",
+    "project_id": "androidapplication-46f40",
+    "storage_bucket": "androidapplication-46f40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:309656e788920ee19f08f3",
+        "android_client_info": {
+          "package_name": "com.mashkovska.authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-cug0eac2lmrve2bc6lflkrrhr8lae1ar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mashkovska.authentication",
+            "certificate_hash": "c764c41def3e4ea129823dc7e9369cd89d4a4b10"
+          }
+        },
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:f5ddfb2d201b95d29f08f3",
+        "android_client_info": {
+          "package_name": "com.mashkovska.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-pad6fjn03ffe7kcsh7lbbkgms4mu6vmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mashkovska.myapplication",
+            "certificate_hash": "c764c41def3e4ea129823dc7e9369cd89d4a4b10"
+          }
+        },
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:04380d898373b9d59f08f3",
+        "android_client_info": {
+          "package_name": "com.tania.mashkovska"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

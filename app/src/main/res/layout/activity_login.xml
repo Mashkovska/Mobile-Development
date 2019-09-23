@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".LoginActivity"
+    >
+
+
+    <EditText
+        android:id="@+id/login_screen_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/colorHint"
+        android:textColor="@color/colorText"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/login_screen_password"
+        android:textColorHint="@color/colorHint"
+        android:textColor="@color/colorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login_screen_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/login_screen_sign_up"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorText"
+        android:layout_height="wrap_content"
+        android:text="@string/don_t_have_an_account_sign_up" />
+</LinearLayout>
+
+
+
+
