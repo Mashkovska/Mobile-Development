@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    tools:context=".WelcomeActivity"
     android:paddingTop="200dp"
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/logged_screen_welcome"
+        android:id="@+id/welcome_screen_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -18,9 +18,10 @@
         android:textColor="@color/colorBackground"/>
 
     <Button
-        android:id="@+id/home_screen_logout"
+        android:id="@+id/welcome_screen_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loginOut"
         android:layout_marginTop="60dp" />
+
 </LinearLayout>
