@@ -6,4 +6,5 @@
     <color name="colorBackground">#000000</color>
     <color name="colorText">#FFFFFF</color>
     <color name="colorHint">#CE777171</color>
+    <color name="border">#000000</color>
 </resources>
