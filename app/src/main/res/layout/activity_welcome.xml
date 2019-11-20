@@ -4,24 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WelcomeActivity"
-    android:paddingTop="200dp"
+    android:paddingTop="20dp"
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
 
-    <TextView
-        android:id="@+id/welcome_screen_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="@string/welcome"
-        android:textColor="@color/colorBackground"/>
-
-    <Button
-        android:id="@+id/welcome_screen_logout"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/data_list_swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/loginOut"
-        android:layout_marginTop="60dp" />
+        android:layout_height="600dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/data_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

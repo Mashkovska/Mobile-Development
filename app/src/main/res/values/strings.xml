@@ -21,4 +21,7 @@
     <string name="input_error_email_invalid">Email invalid</string>
     <string name="input_error_phone_invalid">Input correct number</string>
     <string name="input_error_phone">Input your phone number</string>
+    <string name="wrong">Sign up unsuccessful</string>
+    <string name="icon">Icon</string>
+    <string name="icon_2">Icon</string>
 </resources>

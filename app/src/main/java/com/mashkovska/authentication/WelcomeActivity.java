@@ -1,77 +1,93 @@
 package com.mashkovska.authentication;
 
-import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private Button btnLogout;
+
+    private CustomAdapter adapter;
+    private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private LinearLayout linearLayout;
     private FirebaseAuth mFirebaseAuth;
-    private TextView welcome;
-    private String name;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        btnLogout = findViewById(R.id.welcome_screen_logout);
-        welcome = findViewById(R.id.welcome_screen_welcome);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        getUserParam();
+        initViews();
+        loadMovies();
+        registerNetworkMonitoring();
+    }
 
-        welcome.setText("Welcome," + name);
+    private void initViews() {
+        recyclerView = findViewById(R.id.data_list_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        linearLayout = findViewById(R.id.linearLayout);
+        swipeRefreshLayout = findViewById(R.id.data_list_swipe_refresh);
+        setupSwipeToRefresh();
+    }
 
-        btnLogout.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intToMain = new Intent(WelcomeActivity.this, SignUpActivity.class);
-            intToMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    | Intent.FLAG_ACTIVITY_NO_HISTORY);
-            startActivity(intToMain);
-        });
 
-        mAuthListener = firebaseAuth -> {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                toastMessage(getString(R.string.success_sign_in) + user.getEmail());
-            } else {
-                toastMessage(getString(R.string.success_sign_out));
+    private void loadMovies(){
+        swipeRefreshLayout.setRefreshing(true);
+        final MovieApi apiService = getApplicationEx().getMovieService();
+        final Call<List<Movie>> call = apiService.getAllMovies();
+
+
+        call.enqueue(new Callback<List<Movie>>() {
+            @Override
+            public void onResponse(final Call<List<Movie>> call,
+                                   final Response<List<Movie>> response) {
+                adapter = new CustomAdapter(response.body());
+                recyclerView.setAdapter(adapter);
+                swipeRefreshLayout.setRefreshing(false);
             }
-        };
 
+            @Override
+            public void onFailure(Call<List<Movie>> call, Throwable t) {
+                Snackbar.make(linearLayout, "Failure", Snackbar.LENGTH_LONG).show();
+            }
+
+        });
     }
 
-    private void getUserParam() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            name = user.getDisplayName();
-        }
+    private void registerNetworkMonitoring() {
+        IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        NetworkChangeReceiver receiver = new NetworkChangeReceiver(linearLayout);
+        this.registerReceiver(receiver, filter);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthListener);
+    private void setupSwipeToRefresh(){
+        swipeRefreshLayout.setOnRefreshListener(
+                () -> {
+                    loadMovies();
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+        );
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
     }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mFirebaseAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-    private void toastMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private ApplicationEx getApplicationEx(){
+        return ((ApplicationEx) getApplication());
     }
 }
+
