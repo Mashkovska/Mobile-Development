@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FirstApplication</string>
+    <string name="password">Password</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="welcome">WELCOME!</string>
+    <string name="loginOut">Log Out</string>
+    <string name="action_settings" />
+    <string name="phone_number">Phone number</string>
+    <string name="name">Name</string>
+    <string name="enter_name">Please, enter your name</string>
+    <string name="enter_phone">Please, enter your phone number</string>
+    <string name="enter_email">Please, enter your email</string>
+    <string name="enter_pwd">Please, enter your password</string>
+    <string name="minimum_length">Minimum length of password should be 6</string>
+    <string name="success_sign_in">Successfully signed in with: </string>
+    <string name="success_sign_out">Successfully signed out.</string>
+    <string name="input_error_email_invalid">Email invalid</string>
+    <string name="input_error_phone_invalid">Input correct number</string>
+    <string name="input_error_phone">Input your phone number</string>
+</resources>
