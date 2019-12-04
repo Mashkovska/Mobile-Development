@@ -1,93 +1,36 @@
 package com.mashkovska.authentication;
 
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
+@SuppressWarnings("ALL")
 public class WelcomeActivity extends AppCompatActivity {
-
-    private CustomAdapter adapter;
-    private RecyclerView recyclerView;
-    private SwipeRefreshLayout swipeRefreshLayout;
-    private LinearLayout linearLayout;
-    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-        initViews();
-        loadMovies();
-        registerNetworkMonitoring();
+        initTabFragments();
     }
 
-    private void initViews() {
-        recyclerView = findViewById(R.id.data_list_recycler_view);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        linearLayout = findViewById(R.id.linearLayout);
-        swipeRefreshLayout = findViewById(R.id.data_list_swipe_refresh);
-        setupSwipeToRefresh();
-    }
+    public void initTabFragments(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(getResources().getString(R.string.app_name));
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        TabItem tabMovies = findViewById(R.id.movie_tab);
+        TabItem tabTab2 = findViewById(R.id.tab_tab2);
+        TabItem tabProfile = findViewById(R.id.profile_tab);
+        ViewPager viewPager = findViewById(R.id.viewPager);
 
-
-    private void loadMovies(){
-        swipeRefreshLayout.setRefreshing(true);
-        final MovieApi apiService = getApplicationEx().getMovieService();
-        final Call<List<Movie>> call = apiService.getAllMovies();
-
-
-        call.enqueue(new Callback<List<Movie>>() {
-            @Override
-            public void onResponse(final Call<List<Movie>> call,
-                                   final Response<List<Movie>> response) {
-                adapter = new CustomAdapter(response.body());
-                recyclerView.setAdapter(adapter);
-                swipeRefreshLayout.setRefreshing(false);
-            }
-
-            @Override
-            public void onFailure(Call<List<Movie>> call, Throwable t) {
-                Snackbar.make(linearLayout, "Failure", Snackbar.LENGTH_LONG).show();
-            }
-
-        });
-    }
-
-    private void registerNetworkMonitoring() {
-        IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-        NetworkChangeReceiver receiver = new NetworkChangeReceiver(linearLayout);
-        this.registerReceiver(receiver, filter);
-    }
-
-    private void setupSwipeToRefresh(){
-        swipeRefreshLayout.setOnRefreshListener(
-                () -> {
-                    loadMovies();
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-        );
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-    }
-    private ApplicationEx getApplicationEx(){
-        return ((ApplicationEx) getApplication());
+        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(pageAdapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 }
-

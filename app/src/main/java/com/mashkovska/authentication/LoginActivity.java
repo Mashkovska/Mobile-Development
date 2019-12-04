@@ -17,7 +17,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignIn;
     private TextView tvSignUp;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +29,6 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn = findViewById(R.id.login_screen_login);
         tvSignUp = findViewById(R.id.login_screen_sign_up);
 
-//        mAuthStateListener = firebaseAuth -> {
-//            FirebaseUser mFirebaseUser = auth.getCurrentUser();
-//            if (mFirebaseUser != null) {
-////                Toast.makeText(LoginActivity.this, "You are logged in",
-////                        Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(LoginActivity.this, "Please login",
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//
-//        };
 
         btnSignIn.setOnClickListener(view -> {
             String email = emailId.getText().toString();
@@ -91,14 +79,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        auth.addAuthStateListener(mAuthStateListener);
-//    }
 }
 
 

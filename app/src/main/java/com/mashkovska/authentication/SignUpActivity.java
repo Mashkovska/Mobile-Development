@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText emailId;
@@ -31,7 +33,6 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-
         emailId = findViewById(R.id.sign_up_screen_email);
         password = findViewById(R.id.sign_up_screen_password);
         name = findViewById(R.id.sign_up_screen_name);
@@ -39,23 +40,32 @@ public class SignUpActivity extends AppCompatActivity {
         signUp = findViewById(R.id.sign_up_screen_button);
         signIn = findViewById(R.id.sign_up_screen_login);
 
+
         signUp.setOnClickListener(view -> {
             final String yourName = name.getText().toString().trim();
             final String phone = phoneNumber.getText().toString().trim();
             final String email = emailId.getText().toString().trim();
             final String pwd = password.getText().toString().trim();
 
+
             if (Validation(yourName, phone, email, pwd)) {
                 mFirebaseAuth.createUserWithEmailAndPassword(email, pwd)
                         .addOnCompleteListener(SignUpActivity.this, task -> {
                             if (task.isSuccessful()) {
-                                Intent intToHome = new Intent(this,
-                                        WelcomeActivity.class);
-                                intToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                                        | Intent.FLAG_ACTIVITY_SINGLE_TOP
-                                        | Intent.FLAG_ACTIVITY_NO_HISTORY);
-                                startActivity(intToHome);
-                            } else {
+                                FirebaseUser user = mFirebaseAuth.getCurrentUser();
+                                UserProfileChangeRequest userUpdateProfile = new UserProfileChangeRequest
+                                        .Builder().setDisplayName(yourName).build();
+                                user.updateProfile(userUpdateProfile)
+                                        .addOnCompleteListener(task1 -> {
+                                            if (task1.isSuccessful()) {
+                                                Intent intToHome = new Intent(this,
+                                                        WelcomeActivity.class);
+                                                intToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                                        | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                                startActivity(intToHome);
+                                                }
+                                            });
+                                        } else {
                                 Toast.makeText(SignUpActivity.this, "SignUp Unsuccessful",
                                         Toast.LENGTH_SHORT).show();
                             }
@@ -65,12 +75,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         signIn.setOnClickListener(view -> {
             Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(i);
         });
-
-
     }
 
     public boolean Validation(String yourName, String phone, String email, String pwd) {

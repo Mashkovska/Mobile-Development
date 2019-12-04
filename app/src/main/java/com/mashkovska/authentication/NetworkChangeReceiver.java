@@ -10,7 +10,6 @@ import android.view.View;
 import com.google.android.material.snackbar.Snackbar;
 
 public class NetworkChangeReceiver extends BroadcastReceiver {
-
     private View view;
 
     public NetworkChangeReceiver(View view) {
@@ -24,7 +23,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         }
     }
 
-
     private boolean isOnline(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -32,8 +30,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             return false;
         }
 
-        NetworkCapabilities capabilities = null;
-        capabilities = cm.getNetworkCapabilities(cm.getActiveNetwork());
+        NetworkCapabilities capabilities = cm.getNetworkCapabilities(cm.getActiveNetwork());
         return capabilities != null &&
                 (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
