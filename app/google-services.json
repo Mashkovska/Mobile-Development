@@ -8,6 +8,72 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:edfd17c5e56460c09f08f3",
+        "android_client_info": {
+          "package_name": "com.iot.mobiledevelopment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-gj4q7aki5qniuivfeqbgk07p3sfoia34.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iot.mobiledevelopment",
+            "certificate_hash": "c764c41def3e4ea129823dc7e9369cd89d4a4b10"
+          }
+        },
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:9d633df95cd5aa2c9f08f3",
+        "android_client_info": {
+          "package_name": "com.levonovyy.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:787455216394:android:309656e788920ee19f08f3",
         "android_client_info": {
           "package_name": "com.mashkovska.authentication"
@@ -88,6 +154,43 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpNj3dL3_Zx1IxlukBAvCerj2IkdajUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787455216394:android:452d0d0adf555c3a9f08f3",
+        "android_client_info": {
+          "package_name": "com.tetma.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787455216394-58p8381s9jslvrs73u1l9u2iutqeaig6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tetma.myapplication",
+            "certificate_hash": "c764c41def3e4ea129823dc7e9369cd89d4a4b10"
+          }
+        },
         {
           "client_id": "787455216394-nmjqvel36l68ct6arrcqk1ljrrpo4noc.apps.googleusercontent.com",
           "client_type": 3

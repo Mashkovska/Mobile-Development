@@ -1,77 +1,36 @@
 package com.mashkovska.authentication;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
+@SuppressWarnings("ALL")
 public class WelcomeActivity extends AppCompatActivity {
-    private Button btnLogout;
-    private FirebaseAuth mFirebaseAuth;
-    private TextView welcome;
-    private String name;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        btnLogout = findViewById(R.id.welcome_screen_logout);
-        welcome = findViewById(R.id.welcome_screen_welcome);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-        getUserParam();
-
-        welcome.setText("Welcome," + name);
-
-        btnLogout.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intToMain = new Intent(WelcomeActivity.this, SignUpActivity.class);
-            intToMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    | Intent.FLAG_ACTIVITY_NO_HISTORY);
-            startActivity(intToMain);
-        });
-
-        mAuthListener = firebaseAuth -> {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                toastMessage(getString(R.string.success_sign_in) + user.getEmail());
-            } else {
-                toastMessage(getString(R.string.success_sign_out));
-            }
-        };
-
+        initTabFragments();
     }
 
-    private void getUserParam() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            name = user.getDisplayName();
-        }
-    }
+    public void initTabFragments(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(getResources().getString(R.string.app_name));
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        TabItem tabMovies = findViewById(R.id.movie_tab);
+        TabItem tabTab2 = findViewById(R.id.tab_tab2);
+        TabItem tabProfile = findViewById(R.id.profile_tab);
+        ViewPager viewPager = findViewById(R.id.viewPager);
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mFirebaseAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-    private void toastMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(pageAdapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 }

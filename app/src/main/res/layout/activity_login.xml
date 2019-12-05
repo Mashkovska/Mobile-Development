@@ -18,7 +18,8 @@
         android:textColorHint="@color/colorHint"
         android:textColor="@color/colorText"
         android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/login_screen_password"
@@ -28,7 +29,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/login_screen_login"
@@ -40,9 +42,10 @@
     <TextView
         android:id="@+id/login_screen_sign_up"
         android:layout_width="match_parent"
-        android:textColor="@color/colorText"
         android:layout_height="wrap_content"
-        android:text="@string/don_t_have_an_account_sign_up" />
+        android:layout_marginTop="60dp"
+        android:text="@string/don_t_have_an_account_sign_up"
+        android:textColor="@color/colorText" />
 </LinearLayout>
 
 

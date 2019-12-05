@@ -3,26 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mashkovska.authentication">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".ApplicationEx"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Auth"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".PageAdapter" />
         <activity android:name=".WelcomeActivity" />
-        <activity
-            android:name=".SignUpActivity"
-            android:label="Auth"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUpActivity" />
     </application>
 
 </manifest>
