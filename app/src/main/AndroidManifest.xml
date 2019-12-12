@@ -15,7 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DetailActivity"></activity>
+        <service
+            android:name=".MyFireBaseMessagingService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".DetailActivity" />
         <activity android:name=".PageAdapter" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".LoginActivity">

@@ -78,6 +78,30 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             textDesctiption = itemView.findViewById(R.id.custom_desctription);
             poster = itemView.findViewById(R.id.custom_imageView);
             textTitle = itemView.findViewById(R.id.custom_title);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             movieYear = itemView.findViewById(R.id.custom_year);
 
             itemView.setOnClickListener(v -> {

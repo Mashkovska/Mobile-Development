@@ -33,7 +33,7 @@ public class ApplicationEx extends Application {
 
     public MovieApi createMovieApiService(){
         final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://us-central1-mobile-development-49211.cloudfunctions.net/")
+                .baseUrl("https://us-central1-androidapplication-46f40.cloudfunctions.net/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

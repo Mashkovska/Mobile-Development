@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="205dp"
-    android:background="@drawable/border">
+    android:background="@color/colorPrimaryDark"
+    >
 
     <ImageView
         android:id="@+id/custom_imageView"
@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="9dp"
         android:contentDescription="@string/icon_2"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
         tools:ignore="RtlHardcoded" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_marginLeft="44dp"
         android:layout_toRightOf="@id/custom_imageView"
         android:gravity="center_vertical"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
         android:textSize="12sp"
         tools:ignore="RtlHardcoded,SmallSp" />
 
@@ -36,7 +36,7 @@
         android:layout_marginLeft="44dp"
         android:layout_toRightOf="@id/custom_imageView"
         android:gravity="center_vertical"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
         android:textSize="10sp"
         tools:ignore="RtlHardcoded,SmallSp" />
 
@@ -49,10 +49,8 @@
         android:layout_marginLeft="44dp"
         android:layout_toEndOf="@id/custom_imageView"
         android:gravity="center_vertical"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
         android:textSize="10sp"
-        tools:ignore="RtlHardcoded,SmallSp"
-        android:layout_toRightOf="@id/custom_imageView" />
-
+        tools:ignore="RtlHardcoded,SmallSp" />
 
 </RelativeLayout>

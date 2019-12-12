@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_button"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorText"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_profile_edit_email_layout"
@@ -77,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_button"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorText"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

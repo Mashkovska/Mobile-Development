@@ -1,7 +1,6 @@
 package com.mashkovska.authentication;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +49,6 @@ public class MoviesFragment extends Fragment implements CustomAdapter.OnItemList
 
         initViews();
         loadMovies();
-        registerNetworkMonitoring();
 
         return movieFragment;
     }
@@ -97,12 +95,6 @@ public class MoviesFragment extends Fragment implements CustomAdapter.OnItemList
                 }
         );
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-    }
-
-    private void registerNetworkMonitoring() {
-        IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-        NetworkChangeReceiver receiver = new NetworkChangeReceiver(linearLayout);
-        getActivity().registerReceiver(receiver, filter);
     }
 
     private ApplicationEx getApplicationEx(){
