@@ -1,27 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeActivity"
-    android:paddingTop="200dp"
-    android:paddingRight="20dp"
-    android:paddingLeft="20dp"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:background="#808080"
+    android:textColor="@color/colorText"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:id="@+id/linearLayout">
 
-    <TextView
-        android:id="@+id/welcome_screen_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="@string/welcome"
-        android:textColor="@color/colorBackground"/>
 
-    <Button
-        android:id="@+id/welcome_screen_logout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/loginOut"
-        android:layout_marginTop="60dp" />
+        android:background="#808080 "
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:textColor="@color/colorText"/>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff0000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:tabSelectedTextColor="@color/colorText">
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/movie_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movies"
+            android:textColor="@color/colorText"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab2"
+            android:textColor="@color/colorText"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/profile_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textColor="@color/colorText"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
